@@ -22,7 +22,10 @@ axios({
 
   const token = response.data.access_token;
   localStorage.setItem('token', token); 
-  
+  if(response.data.status == 401) {  
+    localStorage.setItem('token', token) += localStorage.setItem('token', token)
+  }
+    
 }).catch(error => {
   console.error('Erro ao obter token:', error.response ? error.response.data : error.message);
 });
