@@ -4,18 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start:dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@spotify/web-api-ts-sdk": "^1.2.0",
     "axios": "^1.6.7",
     "chalk": "^4.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
-    "express": "^4.18.2",
-    "node-localstorage": "^3.0.5"
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.3"
