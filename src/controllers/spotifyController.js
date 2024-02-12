@@ -70,6 +70,28 @@ const getTracks = async (req, res) => {
   }  
 }
 
+const getAudioFeatures = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const response = await api.tracks.audioAnalysis(id);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.json(error);
+  }  
+}
+
+const getAudioAnalysis = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const response = await api.tracks.audioAnalysis(id);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.json(error);
+  }  
+}
+
 const getLyrics = async (req, res) => {
   const art = req.query['art'];
   const mus = req.query['mus'];
@@ -86,5 +108,7 @@ module.exports = {
   getArtistTopTracks,
   getRelatedArtists,
   getTracks,
+  getAudioFeatures,
+  getAudioAnalysis,
   getLyrics 
 }
