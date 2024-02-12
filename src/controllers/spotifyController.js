@@ -42,9 +42,10 @@ const getArtistAlbum = async (req, res) => {
 
 const getArtistTopTracks = async (req, res) => {
   const id = req.params.id;
+  const market = "BR";
 
   try {
-    const response = await api.artists.topTracks(id);
+    const response = await api.artists.topTracks(id, market);
     return res.status(200).json(response);
   } catch (error) {
     return res.status(404).json(error);
