@@ -59,7 +59,7 @@ const getRelatedArtists = async (req, res) => {
   }
 }
 
-const getTracks = async (req, res) => {
+const getTrack = async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -107,7 +107,7 @@ module.exports = {
   getArtistAlbum,
   getArtistTopTracks,
   getRelatedArtists,
-  getTracks,
+  getTrack,
   getAudioFeatures,
   getAudioAnalysis,
   getLyrics 
