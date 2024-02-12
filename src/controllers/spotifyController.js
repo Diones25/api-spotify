@@ -10,9 +10,12 @@ const searchArthist = async (req, res) => {
   const q = req.query['q'];
   const type = req.query['type'];
   
-  const response = await api.search(q, [type]);
-
-  return res.status(200).json(response);
+  try {
+    const response = await api.search(q, [type]);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
 }
 
 const getArtist = async (req, res) => {
@@ -22,7 +25,7 @@ const getArtist = async (req, res) => {
     const response = await api.artists.get(id)
     return res.status(200).json(response);
   } catch (error) {
-    return res.json(error);
+    return res.status(404).json(error);
   }  
 }
 
@@ -33,7 +36,7 @@ const getArtistAlbum = async (req, res) => {
     const response = await api.artists.albums(id)
     return res.status(200).json(response);
   } catch (error) {
-    return res.json(error);
+    return res.status(404).json(error);
   }  
 }
 
@@ -44,7 +47,7 @@ const getArtistTopTracks = async (req, res) => {
     const response = await api.artists.topTracks(id);
     return res.status(200).json(response);
   } catch (error) {
-    return res.json(error);
+    return res.status(404).json(error);
   }
 }
 
@@ -55,7 +58,7 @@ const getRelatedArtists = async (req, res) => {
     const response = await api.artists.relatedArtists(id);
     return res.status(200).json(response);
   } catch (error) {
-    return res.json(error);
+    return res.status(404).json(error);
   }
 }
 
@@ -66,7 +69,7 @@ const getTrack = async (req, res) => {
     const response = await api.tracks.get(id);
     return res.status(200).json(response);
   } catch (error) {
-    return res.json(error);
+    return res.status(404).json(error);
   }  
 }
 
@@ -77,7 +80,7 @@ const getAudioFeatures = async (req, res) => {
     const response = await api.tracks.audioAnalysis(id);
     return res.status(200).json(response);
   } catch (error) {
-    return res.json(error);
+    return res.status(404).json(error);
   }  
 }
 
@@ -88,17 +91,21 @@ const getAudioAnalysis = async (req, res) => {
     const response = await api.tracks.audioAnalysis(id);
     return res.status(200).json(response);
   } catch (error) {
-    return res.json(error);
+    return res.status(404).json(error);
   }  
 }
 
 const getLyrics = async (req, res) => {
   const art = req.query['art'];
   const mus = req.query['mus'];
-  const apikey = '08875fa30073d4a22dda7e89e6ae5289';
+  const apikey = process.env.API_KEY_VAGALUME;
 
-  const response = await axios.get(`https://api.vagalume.com.br/search.php?art=${art}&mus=${mus}&apikey=${apikey}`);
-  return res.status(200).json(response.data);
+  try {
+    const response = await axios.get(`https://api.vagalume.com.br/search.php?art=${art}&mus=${mus}&apikey=${apikey}`);
+    return res.status(200).json(response.data);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
 }
 
 module.exports = {
