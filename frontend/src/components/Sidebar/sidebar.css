@@ -47,4 +47,7 @@
 #AppBarSideBar {
   background-color: transparent;
   box-shadow: none;
+  margin-left: 40px;
+  left: 28px;
+  z-index: 2;
 }
