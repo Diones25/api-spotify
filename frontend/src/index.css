@@ -5,9 +5,52 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #242424 !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.MuiPaper-root, 
+.MuiPaper-elevation.MuiPaper-elevation0,
+.MuiDrawer-paper.MuiDrawer-paperAnchorLeft,
+.MuiDrawer-paperAnchorDockedLeft,
+.css-12i7wg6-MuiPaper-root-MuiDrawer-pape {
+  background-color: #000;
+}  
+
+#HomeIcon, 
+#SearchIcon, 
+#ChevronRightIcon,
+#ChevronLeftIcon
+{
+  color: #fff;
+}
+
+#ChevronRightIcon,
+#ChevronLeftIcon:hover
+{
+  color: #000;
+}
+
+#IconButtonArrow:hover 
+{
+  color: #000;
+  background-color: #fff;
+}
+
+#ListItemButtonSideBar:hover {
+  background-color: #181818;
+  transition: all ease .5s;
+  border-radius: 4px;
+}
+
+#ListItemSideBar {
+  padding-left: 6px;
+  padding-right: 6px;
+}
+#IconButtonToolbar {
+  color: #fff;
 }
