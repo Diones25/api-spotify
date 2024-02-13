@@ -5,7 +5,9 @@ import Sidebar from "../../Sidebar";
 const Home = () => {
   return (
     <>
-      <Sidebar />
+      <Sidebar>
+        <h1>Os componentes ficarão aqui</h1>
+      </Sidebar>
     </>
   )
 }
