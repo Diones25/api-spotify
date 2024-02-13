@@ -152,7 +152,7 @@ const Sidebar = ({ children }) => {
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
+        <div id='MainBox'></div>
         {children}
       </Box>
     </Box>
