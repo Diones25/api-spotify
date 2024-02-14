@@ -96,6 +96,20 @@ const getAudioAnalysis = async (req, res) => {
   }  
 }
 
+const getCategories = async (req, res) => {
+  const locale = "pt_BR;"
+  const country = "BR";
+  // const limit = 20;
+  // const offset = 4;
+
+  try {
+    const response = await api.browse.getCategories(locale, country);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
 const getLyrics = async (req, res) => {
   const art = req.query['art'];
   const mus = req.query['mus'];
@@ -118,5 +132,6 @@ module.exports = {
   getTrack,
   getAudioFeatures,
   getAudioAnalysis,
+  getCategories,
   getLyrics 
 }
