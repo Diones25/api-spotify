@@ -1,6 +1,6 @@
 import { Card, CardMedia, Grid, Typography } from "@mui/material";
 import Sidebar from "../../Sidebar";
-import './pagedetails.css'
+import './styles.css'
 
 const PagePlaylist = () => {
   return (
