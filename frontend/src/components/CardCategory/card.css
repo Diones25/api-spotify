@@ -1,0 +1,33 @@
+
+/* transform: rotate(25deg) translate(18%,-2%);*/
+
+#CardContentCategory {
+  background-color: #181818;
+}
+#TypographyTitleCategory {
+  margin-top: 15px;
+  margin-left: 20px;
+  color: #fff;
+}
+#CardMediaImageCategory {
+  background-color: #181818;
+  width: 100px;
+  height: 100px;
+}
+#Card {
+  height: 224px;
+  margin-right: 5px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#CardImageContainer {
+  height: 50%;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  transform: rotate(25deg) translate(18%,-2%);
+}
+#CardTypographyContainer {
+  height: 50%;
+}
