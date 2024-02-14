@@ -110,6 +110,18 @@ const getCategories = async (req, res) => {
   }
 }
 
+const getPlaylist = async (req, res) => {
+  const playlist_id = req.params.playlist_id;
+  const market = "BR";
+
+  try {
+    const response = await api.playlists.getPlaylist(playlist_id, market);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json(error);
+  }  
+}
+
 const getLyrics = async (req, res) => {
   const art = req.query['art'];
   const mus = req.query['mus'];
@@ -133,5 +145,6 @@ module.exports = {
   getAudioFeatures,
   getAudioAnalysis,
   getCategories,
+  getPlaylist,
   getLyrics 
 }

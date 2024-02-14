@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '../components/pages/Home';
 import PageSearch from '../components/pages/PageSearch';
-import PageDetails from '../components/pages/PageDetails';
+import PagePlaylist from '../components/pages/PagePlaylist';
 
 export const Router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ export const Router = createBrowserRouter([
     path: "/playlist",
     Component() {
       return (
-        <PageDetails />
+        <PagePlaylist />
       )
     }
   }

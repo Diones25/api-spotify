@@ -1,8 +1,8 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Card, CardMedia, Grid, Typography } from "@mui/material";
 import Sidebar from "../../Sidebar";
 import './pagedetails.css'
 
-const PageDetails = () => {
+const PagePlaylist = () => {
   return (
     <>
       <Sidebar>
@@ -46,4 +46,4 @@ const PageDetails = () => {
   )
 }
 
-export default PageDetails;
+export default PagePlaylist;

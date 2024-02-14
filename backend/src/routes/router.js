@@ -16,6 +16,8 @@ router.get('/audioanalysis/:id', spotifyController.getAudioAnalysis);
 
 router.get('/browse/categories', spotifyController.getCategories);
 
+router.get('/playlist/:playlist_id', spotifyController.getPlaylist);
+
 router.get('/lyrics', spotifyController.getLyrics);
 
 module.exports = router;
