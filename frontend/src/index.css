@@ -7,3 +7,6 @@ body {
   background-color: #242424 !important;
   color: #fff !important;
 }
+a {
+  text-decoration: none;
+}

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -125,30 +126,58 @@ const Sidebar = ({ children }) => {
           </IconButton>
         </DrawerHeader>
         <List>
-          {['Home', 'Pesquisar'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }} id='ListItemSideBar'>
-              <ListItemButton
-                id='ListItemButtonSideBar'
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                  color: '#fff'
-                }}
-              >
-                <ListItemIcon
+          <Link to={"/"}>
+            {['Home'].map((text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: 'block' }} id='ListItemSideBar'>
+                <ListItemButton
+                  id='ListItemButtonSideBar'
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center'
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                    color: '#fff'
                   }}
                 >
-                  {index % 2 === 0 ? <HomeIcon id='HomeIcon' /> : <SearchIcon id='SearchIcon' />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <HomeIcon id='HomeIcon' /> 
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </Link>
+          <Link to={"/search"}>
+            {['Pesquisar'].map((text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: 'block' }} id='ListItemSideBar'>
+                <ListItemButton
+                  id='ListItemButtonSideBar'
+                  sx={{
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
+                    color: '#fff'
+                  }}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <SearchIcon id='SearchIcon' />
+                  </ListItemIcon>
+                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </Link>
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
