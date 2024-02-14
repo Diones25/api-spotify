@@ -1,12 +1,7 @@
 import { 
   Box, 
   TextField, 
-  Typography, 
-  Input, 
-  InputLabel, 
   InputAdornment, 
-  FormControl, 
-  OutlinedInput,
   Grid
 } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
