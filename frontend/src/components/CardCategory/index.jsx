@@ -20,7 +20,7 @@ const CardCategory = ({ image, title }) => {
 
   return (
     <Card 
-      sx={{ maxWidth: 224 }}
+      sx={{ maxWidth: 177 }}
       id='Card' 
       style={{ 
         backgroundColor: `${generateColor()}` 
