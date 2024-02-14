@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '../components/pages/Home';
 import PageSearch from '../components/pages/PageSearch';
+import PageDetails from '../components/pages/PageDetails';
 
 export const Router = createBrowserRouter([
   {
@@ -16,6 +17,14 @@ export const Router = createBrowserRouter([
     Component() {
       return (
         <PageSearch />
+      )
+    }
+  },
+  {
+    path: "/playlist",
+    Component() {
+      return (
+        <PageDetails />
       )
     }
   }
