@@ -12,7 +12,7 @@ const PageAlbum = () => {
               <iframe
                 title="Spotify"
                 className="SpotifyPlayer"
-                src="https://embed.spotify.com/?uri=spotify:album:1xpVDIfB11DKa1P2YJDdJP&view=list&theme=black"
+                src="https://embed.spotify.com/?uri=spotify:album:2Zwru555EbXVqOQ1c30LLH&view=list&theme=black"
                 width="100%"
                 height="100%"
                 frameBorder="0"
