@@ -122,6 +122,18 @@ const getPlaylist = async (req, res) => {
   }  
 }
 
+const getAlbum = async (req, res) => {
+  const id = req.params.id;
+  const market = "BR";
+
+  try {
+    const response = await api.albums.get(id, market);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json(error);
+  }  
+}
+
 const getLyrics = async (req, res) => {
   const art = req.query['art'];
   const mus = req.query['mus'];
@@ -146,5 +158,6 @@ module.exports = {
   getAudioAnalysis,
   getCategories,
   getPlaylist,
+  getAlbum,
   getLyrics 
 }
