@@ -6,7 +6,7 @@ const api = SpotifyApi.withClientCredentials(
   process.env.SPOTIFY_CLIENTE_SECRET 
 )
 
-const searchArthist = async (req, res) => {  
+const search = async (req, res) => {  
   const q = req.query['q'];
   const type = req.query['type'];
   
@@ -148,7 +148,7 @@ const getLyrics = async (req, res) => {
 }
 
 module.exports = {
-  searchArthist,
+  search,
   getArtist,
   getArtistAlbum,
   getArtistTopTracks,
