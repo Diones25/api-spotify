@@ -5,10 +5,44 @@ const api = SpotifyApi.withClientCredentials(
   process.env.SPOTIFY_CLIENT_ID,
   process.env.SPOTIFY_CLIENTE_SECRET 
 )
-
-const search = async (req, res) => {  
+//CRIAR UM ENPOINT PARA CADA TIPO DE PESQUISA -> ARTISTA, ALBUM OU PLAYLIST
+const searchArtist = async (req, res) => {  
   const q = req.query['q'];
-  const type = req.query['type'];
+  const type = "artist";
+  const limit = req.query['limit'];
+  const offset = req.query['offset'];
+  const market = "BR";
+  const include_external = "audio";
+  //Necessário implementar paginação no front-end
+  
+  try {
+    const response = await api.search(q, [type], market, limit, offset, include_external);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
+const searchAlbum = async (req, res) => {  
+  const q = req.query['q'];
+  const type = "album";
+  const limit = req.query['limit'];
+  const offset = req.query['offset'];
+  const market = "BR";
+  const include_external = "audio";
+  //Necessário implementar paginação no front-end
+  
+  try {
+    const response = await api.search(q, [type], market, limit, offset, include_external);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
+const searchPlaylist = async (req, res) => {  
+  const q = req.query['q'];
+  const type = "playlist";
   const limit = req.query['limit'];
   const offset = req.query['offset'];
   const market = "BR";
@@ -153,7 +187,9 @@ const getLyrics = async (req, res) => {
 }
 
 module.exports = {
-  search,
+  searchArtist,
+  searchAlbum,
+  searchPlaylist,
   getArtist,
   getArtistAlbum,
   getArtistTopTracks,
