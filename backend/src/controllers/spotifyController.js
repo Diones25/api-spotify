@@ -9,9 +9,14 @@ const api = SpotifyApi.withClientCredentials(
 const search = async (req, res) => {  
   const q = req.query['q'];
   const type = req.query['type'];
+  const limit = req.query['limit'];
+  const offset = req.query['offset'];
+  const market = "BR";
+  const include_external = "audio";
+  //Necessário implementar paginação no front-end
   
   try {
-    const response = await api.search(q, [type]);
+    const response = await api.search(q, [type], market, limit, offset, include_external);
     return res.status(200).json(response);
   } catch (error) {
     return res.status(404).json(error);
