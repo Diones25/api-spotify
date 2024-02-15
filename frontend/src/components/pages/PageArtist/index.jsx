@@ -1,8 +1,8 @@
-import {  Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import Sidebar from "../../Sidebar";
 import './styles.css';
 
-const PagePlaylist = () => {
+const PageArtist = () => {
   return (
     <>
       <Sidebar>
@@ -12,7 +12,7 @@ const PagePlaylist = () => {
               <iframe
                 title="Spotify"
                 className="SpotifyPlayer"
-                src="https://embed.spotify.com/?uri=spotify:playlist:3s6pzAP2AsaWIHcpSatR3c&view=list&theme=black"
+                src="https://embed.spotify.com/?uri=spotify:artist:3q7HBObVc0L8jNeTe5Gofh&view=list&theme=black"
                 width="100%"
                 height="100%"
                 frameBorder="0"
@@ -28,4 +28,4 @@ const PagePlaylist = () => {
   )
 }
 
-export default PagePlaylist;
+export default PageArtist;
