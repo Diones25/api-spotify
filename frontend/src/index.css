@@ -8,5 +8,5 @@ body {
   color: #fff !important;
 }
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }

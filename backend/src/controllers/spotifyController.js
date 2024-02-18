@@ -209,6 +209,10 @@ const getLyrics = async (req, res) => {
   }
 }
 
+const home = (req, res) => {
+  return res.status(200).json("Hello");
+}
+
 module.exports = {
   getUser,
   getUserAlbums,
@@ -225,5 +229,6 @@ module.exports = {
   getCategories,
   getPlaylist,
   getAlbum,
-  getLyrics 
+  getLyrics,
+  home
 }

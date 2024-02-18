@@ -5,52 +5,39 @@ import {
 } from "@mui/material";
 import Sidebar from "../../Sidebar";
 import CardItem from "../../Card";
+import './style.css'
+
+import '/node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 const Home = () => {
   return (
     <>
       <Sidebar>
-        <Box>
-        <Typography variant="h5" gutterBottom id='TypographyTitle'>
-          Álbuns populares        
-        </Typography>
-        </Box>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={3} lg={2}>
-            <CardItem 
-              image={"https://i.scdn.co/image/ab67706c0000da84dd2105276d0026eb209244e4"}
-              title={'Barões da Pis...'}
-              description={'Barões da Pisadinha 2024...'}
-            />
+          <Grid item md={12} lg={12}>
+            <div className="Container">
+              <div className="ms-sm-0 ms-md-0 ms-lg-4 d-flex align-items-center flex-column flex-sm-column flex-md-column py-5 py-sm-5 py-md-5 text-md-center flex-lg-row">
+                <div className="Container_image">
+                  <img 
+                    src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=2786728538107328&height=300&width=300&ext=1710794274&hash=Afow1tfCCYdoMol1tApNwSve9Zhk3n7FhcPAM7QS6GvLEA" 
+                    alt="" 
+                  />
+                </div>
+                <div className="ms-0 ms-sm-0 ms-md-0 ms-lg-4">
+                  <div className="text-center text-sm-center text-md-center text-lg-start mt-4 mt-sm-4 mt-md-4">Perfil</div>
+                  <div className="fw-bold h1 display-1">
+                    Diones Pereira
+                  </div> 
+                  <div className="text-center text-sm-center text-md-center text-lg-start">1 playlist pública</div>                
+                </div>
+              </div>
+
+              <div className="ms-sm-0 ms-md-0 ms-lg-4 bg-white">
+                ...
+              </div>
+            </div>
           </Grid>
-          <Grid item xs={12} sm={6} md={3} lg={2}>
-            <CardItem 
-              image={"https://i.scdn.co/image/ab67706c0000da84dd2105276d0026eb209244e4"}
-              title={'Barões da Pis...'}
-              description={'Barões da Pisadinha 2024...'}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3} lg={2}>
-            <CardItem 
-              image={"https://i.scdn.co/image/ab67706c0000da84dd2105276d0026eb209244e4"}
-              title={'Barões da Pis...'}
-              description={'Barões da Pisadinha 2024...'}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3} lg={2}>
-            <CardItem 
-              image={"https://i.scdn.co/image/ab67706c0000da84dd2105276d0026eb209244e4"}
-              title={'Barões da Pis...'}
-              description={'Barões da Pisadinha 2024...'}
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3} lg={2}>
-            <CardItem 
-              image={"https://i.scdn.co/image/ab67706c0000da84dd2105276d0026eb209244e4"}
-              title={'Barões da Pis...'}
-              description={'Barões da Pisadinha 2024...'}
-            />
-          </Grid>
+          
         </Grid>
       </Sidebar>
     </>
