@@ -3,13 +3,14 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import './card.css'
+import './style.css'
 
 const CardItem = ({ image, title, description }) => {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
+        style={{ with:  '169px', height: '169px', borderRadius: '50%' }}
         component="img"
         image={ image }
         id='CardMediaImage'
