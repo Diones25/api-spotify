@@ -8,14 +8,14 @@ import './style.css'
 const CardItem = ({ image, title, description }) => {
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} id='CardContainer'>
       <CardMedia
         style={{ with:  '169px', height: '169px', borderRadius: '50%' }}
         component="img"
         image={ image }
         id='CardMediaImage'
       />
-      <CardContent id='CardContent'>
+      <CardContent id='CardContent' style={{ background: "#282828" }}>
         <Typography variant="h6" gutterBottom id='TypographyTitle'>
           { title }          
         </Typography>

@@ -10,12 +10,12 @@ const CardItem = ({ image, title, description }) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
-        style={{ with:  '240px', height: '240px', borderRadius: '8%' }}
+        style={{ with:  '240px', height: '240px', background: "#282828" }}
         component="img"
         image={ image }
         id='CardMediaImage'
       />
-      <CardContent id='CardContent'>
+      <CardContent id='CardContent' style={{ background: "#282828" }}>
         <Typography variant="h6" gutterBottom id='TypographyTitle'>
           { title }          
         </Typography>
