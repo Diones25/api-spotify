@@ -1,11 +1,19 @@
-#SearchIconForm {
-  color: #121212;
+#TextField {
+  width: 364px;
+  height: 20px;
+  border-radius: 500px !important;
+  
+}
+#TextField::placeholder {
+  color: #75755b;
 }
 
-.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
-  width: 100%;
+#SearchIconForm {
+  color: #bdbdbd;
 }
 
 .css-1q6at85-MuiInputBase-root-MuiOutlinedInput-root {
-  background-color: #fff;
+  background-color: #242424;
+  border-radius: 500px !important;
+  
 }

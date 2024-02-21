@@ -11,7 +11,16 @@ const getUser = async (req, res) => {
 
   try {
     const response = await api.users.profile(userId);
-    return res.status(200).json(response);
+    const item = response.images.map((item) => item.url)
+    const images = item[1];
+
+    const data = {
+      display_name: response.display_name,
+      id: response.id,
+      images: images
+    }
+
+    return res.status(200).json(data);
   } catch (error) {
     return res.status(404).json(error);
   }
@@ -28,10 +37,21 @@ const getUserAlbums = async (req, res) => {
   }
 }
 
-//CRIAR UM ENPOINT PARA CADA TIPO DE PESQUISA -> ARTISTA, ALBUM OU PLAYLIST
-const searchArtist = async (req, res) => {  
+const getUserPlaylist = async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const response = await api.currentUser.playlists.playlists(id);
+    return res.status(200).json(response);
+  } catch (error) {
+    return res.status(404).json(error);
+  }
+}
+
+//CRIAR UM ENPOINT PARA CADA TIPO DE PESQUISA -> ARTISTA, ALBUM, PLAYLIST, tracks
+const search = async (req, res) => {  
   const q = req.query['q'];
-  const type = "artist";
+  const type = req.query['type'];
   const limit = req.query['limit'];
   const offset = req.query['offset'];
   const market = "BR";
@@ -39,7 +59,29 @@ const searchArtist = async (req, res) => {
   //Necessário implementar paginação no front-end
   
   try {
+    if(req.query.type == "artist") { 
+      console.log("Pesquisou um artista")
+      const response = await api.search(q, ['artist'], market, limit, offset, include_external);
+      return res.status(200).json(response);
+    }
+    else if(req.query.type == "album") { 
+      console.log("Pesquisou um album")
+      const response = await api.search(q, ['album'], market, limit, offset, include_external);
+      return res.status(200).json(response);
+    }
+    else if(req.query.type == "playlist") { 
+      console.log("Pesquisou uma playlist")
+      const response = await api.search(q, ['playlist'], market, limit, offset, include_external);
+      return res.status(200).json(response);
+    }
+    else if(req.query.type == "track") { 
+      console.log("Pesquisou uma musica")
+      const response = await api.search(q, ['track'], market, limit, offset, include_external);
+      return res.status(200).json(response);
+    }
+    //Pesquisando tudo
     const response = await api.search(q, [type], market, limit, offset, include_external);
+    console.log("Pesquisou tudo")
     return res.status(200).json(response);
   } catch (error) {
     return res.status(404).json(error);
@@ -216,7 +258,8 @@ const home = (req, res) => {
 module.exports = {
   getUser,
   getUserAlbums,
-  searchArtist,
+  getUserPlaylist,
+  search,
   searchAlbum,
   searchPlaylist,
   getArtist,

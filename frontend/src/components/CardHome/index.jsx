@@ -10,7 +10,7 @@ const CardItem = ({ image, title, description }) => {
   return (
     <Card sx={{ maxWidth: 345 }} id='CardContainer'>
       <CardMedia
-        style={{ with:  '169px', height: '169px', borderRadius: '50%' }}
+        style={{ height: '196px', borderRadius: '12%' }}
         component="img"
         image={ image }
         id='CardMediaImage'

@@ -1,11 +1,9 @@
 import { 
-  Box, 
   Container, 
-  Grid, 
-  Typography 
+  Grid
 } from "@mui/material";
 import Sidebar from "../../Sidebar";
-import CardArtist from "../../CardArtist";
+import Card from "../../CardHome";
 import CardPlaylist from "../../CardPlaylist";
 import './style.css'
 
@@ -44,7 +42,7 @@ const Home = () => {
 
                 <Grid className="d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-start" container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
                   <Grid item lg={2}>
-                    <CardArtist
+                    <Card
                       className='ContainerImg'
                       image={"https://i.scdn.co/image/ab67706c0000da84dd2105276d0026eb209244e4"}
                       title={'Barões da Pis...'}
@@ -52,7 +50,7 @@ const Home = () => {
                     />
                   </Grid>
                   <Grid item lg={2}>
-                    <CardArtist
+                    <Card
                       image={"https://i.scdn.co/image/df73c0cebe56cafe705ffdba5085ccbd5680bd16"}
                       title={'Barões da Pis...'}
                       description={'Artista'}

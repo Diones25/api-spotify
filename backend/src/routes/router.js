@@ -4,9 +4,10 @@ const spotifyController = require('../controllers/spotifyController.js');
 const router = Router();
 
 router.get('/user/:userId', spotifyController.getUser);
-router.get('/user/albums', spotifyController.getUserAlbums);
+router.get('/user/albums/:id', spotifyController.getUserAlbums);
+router.get('/user/playlist/:id', spotifyController.getUserPlaylist);
 
-router.get('/search/artist', spotifyController.searchArtist);
+router.get('/search', spotifyController.search);
 router.get('/search/album', spotifyController.searchAlbum);
 router.get('/search/playlist', spotifyController.searchPlaylist);
 

@@ -1,0 +1,49 @@
+.Card {
+  width: 200px;
+  height: 278px;
+  background-color: #181818;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+}
+.Card:hover {
+  background-color: #282828;
+  transition: all ease .8s;
+  display: block;
+}
+
+.CardImg {
+  padding: 16px;
+}
+
+.CardImg img {
+  width: 169;
+  height: 169px;
+  border-radius: 4px;
+}
+
+.CardTitle, .CardDescription {
+  padding-left: 16px;
+}
+
+.ContainerPlaybutton .playbutton {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 50%;
+  background-color: #1ed760;
+  position: absolute;
+  bottom: 14px;
+  left: 138px;
+  display: none;
+}
+
+.Card:hover .ContainerPlaybutton .playbutton{
+  display: block;
+  transition: all ease .8s;
+}
+
+.ContainerPlaybutton .playbutton svg{
+  width: 24px;
+  height: 24px;
+}
