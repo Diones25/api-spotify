@@ -13,15 +13,15 @@ const Card = ({ image, title, description }) => {
           </button>
         </div>
         <div className="CardContent">
-          <div className="CardImg">
+          <div className="CardImg rounded">
             <img src={ image } alt="" />
           </div>
-          <div className="CardTitle">
+          <h6 className="CardTitle">
             { title }
-          </div>
-          <div className="CardDescription">
+          </h6>
+          <span className="CardDescription">
             { description }
-          </div>
+          </span>
         </div>
       </div>
     </>
