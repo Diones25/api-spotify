@@ -8,8 +8,28 @@ import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 const PageSearch = () => {
   return (
-    <>            
-      <FormSearch />
+    <>
+      <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
+        <Grid
+          className="
+            d-flex justify-content-center 
+            justify-content-sm-center 
+            justify-content-md-center 
+            justify-content-lg-start
+            flex-column
+            flex-sm-row
+            flex-md-row
+            flex-lg-row
+            align-items-center
+          "
+          container spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          <Grid item lg={2}>
+            <FormSearch />
+          </Grid>
+        </Grid>
+      </div>
         
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
         <div className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
