@@ -9,8 +9,7 @@ import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 const PageSearch = () => {
   return (
-    <>
-      <Sidebar>        
+    <>            
       <FormSearch />
         
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
@@ -102,8 +101,6 @@ const PageSearch = () => {
           </Grid>
         </Grid>
       </div>
-
-      </Sidebar>
     </>
   )
 }
