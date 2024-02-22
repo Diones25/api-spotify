@@ -1,7 +1,6 @@
 import { 
   Grid
 } from "@mui/material";
-import Sidebar from "../../Sidebar";
 import FormSearch from "../../FormSearch";
 import Card from "../../Card";
 import CardRounded from "../../CardRounded";
