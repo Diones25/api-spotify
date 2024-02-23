@@ -3,8 +3,36 @@
   font-size: 2.5rem;
 }
 
+.Container_buttons button {
+  border: 0;
+  margin-right: 6px;
+  margin-left: 6px;
+  width: 80px;
+  height: 36px;
+  border-radius: 18px;
+  background-color: #181818;
+  color: #fff;
+}
+
+.Container_buttons button:hover {
+  background-color: #282828;
+  transition: all ease .8s;
+}
+
+.Container_buttons button.active {
+  background-color: #fff;
+  color: #000;
+}
+
 @media only screen and (max-width: 575px) {
   #Title {
     font-size: 2.8rem;
+  }
+
+  .Container_buttons button {
+    width: 94px;
+    height: 44px;
+    margin-bottom: 5px;
+    font-size: 1.4rem;
   }
 }

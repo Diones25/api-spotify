@@ -9,7 +9,6 @@
 .Card:hover {
   background-color: #282828;
   transition: all ease .8s;
-  display: block;
 }
 
 .CardImg {

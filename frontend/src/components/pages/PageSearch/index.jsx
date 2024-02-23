@@ -31,6 +31,34 @@ const PageSearch = () => {
           </Grid>
         </Grid>
       </div>
+
+      <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-3">
+        <Grid
+          className="
+            d-flex justify-content-center 
+            justify-content-sm-center 
+            justify-content-md-center 
+            justify-content-lg-start
+            flex-column
+            flex-sm-row
+            flex-md-row
+            flex-lg-row
+            align-items-center
+          "
+          container spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 4, sm: 8, md: 12 }}
+        >
+          <Grid item lg={2}>
+            <div className="Container_buttons">
+              <button className="active">Tudo</button>
+              <button>Playlist</button>
+              <button>Músicas</button>
+              <button>Artistas</button>
+              <button>Álbum</button>
+            </div>
+          </Grid>
+        </Grid>
+      </div>
         
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
         <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
