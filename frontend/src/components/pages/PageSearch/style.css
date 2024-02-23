@@ -1,0 +1,10 @@
+
+#Title {
+  font-size: 2.5rem;
+}
+
+@media only screen and (max-width: 575px) {
+  #Title {
+    font-size: 2.8rem;
+  }
+}

@@ -57,3 +57,26 @@
   width: 32px;
   height: 32px;
 }
+
+@media only screen and (max-width: 575px) {
+  .Card {
+    min-width: 280px;
+    width: 100%;
+    min-height: 380px !important;
+  }
+
+  .CardImg img {
+    width: 100%;
+    max-width: 169;
+    min-height: 240px;
+    border-radius: 4px;
+  }
+
+  .CardTitle {
+    font-size: 1.9rem !important;
+  }
+
+  .CardDescription {
+    font-size: 1.2rem !important;
+  }
+}

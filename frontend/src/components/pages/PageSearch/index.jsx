@@ -4,7 +4,8 @@ import {
 import FormSearch from "../../FormSearch";
 import Card from "../../Card";
 import CardRounded from "../../CardRounded";
-import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./style.css"
 
 const PageSearch = () => {
   return (
@@ -32,7 +33,7 @@ const PageSearch = () => {
       </div>
         
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
-        <div className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
+        <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
           Artistas
         </div>
         
@@ -77,7 +78,7 @@ const PageSearch = () => {
       </div> 
 
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
-        <div className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
+        <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
           Albuns
         </div>
 

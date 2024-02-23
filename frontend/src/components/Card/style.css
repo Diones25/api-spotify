@@ -27,6 +27,10 @@
   padding-left: 16px;
 }
 
+.CardTitle {
+  font-size: 1.3rem !important;
+}
+
 .ContainerPlaybutton .playbutton {
   width: 48px;
   height: 48px;
@@ -47,4 +51,27 @@
 .ContainerPlaybutton .playbutton img{
   width: 24px;
   height: 24px;
+}
+
+@media only screen and (max-width: 575px) {
+  .Card {
+    min-width: 280px;
+    width: 100%;
+    min-height: 380px !important;
+  }
+
+  .CardImg img {
+    width: 100%;
+    max-width: 169;
+    min-height: 240px;
+    border-radius: 4px;
+  }
+
+  .CardTitle {
+    font-size: 1.9rem !important;
+  }
+
+  .CardDescription {
+    font-size: 1.2rem !important;
+  }
 }
