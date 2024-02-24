@@ -1,27 +1,13 @@
-import { 
-  TextField, 
-  InputAdornment
-} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import './formsearch.css';
 
-const FormSearch = () => {
+const FormSearch = ({ value }) => {
   return (
     <>      
-      <TextField
-        id="TextField"
-        placeholder="O que você quer ouvir ?"
-        InputProps={
-          {
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon id='SearchIconForm' />
-              </InputAdornment>
-            ),
-          }
-        }
-        variant="outlined"
-      />          
+      <div>
+        <SearchIcon id='SearchIconForm' />
+        <input type="text" placeholder="O que você quer ouvir ?" name="" id="inputform" value={value} />
+      </div>          
     </>
   )
 }
