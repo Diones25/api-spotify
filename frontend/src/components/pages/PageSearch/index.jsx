@@ -1,13 +1,47 @@
+import React, { useState } from 'react'; 
 import { 
   Grid
 } from "@mui/material";
 import FormSearch from "../../FormSearch";
 import Card from "../../Card";
 import CardRounded from "../../CardRounded";
+import { search } from '../../../services/api.js'
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./style.css"
 
 const PageSearch = () => {
+  const [ query, setQuery ] = useState('');
+  const [ searchType, setSearchType ] = useState('');
+  const [ results, setResults ] = useState([]);
+
+  const handleSearch = async () => {
+    try {
+
+      if(searchType === 'artist,album,playlist,track') {
+        /*Aqui fica a pesquisa geral*/
+        console.log('Está pesquisando tudo')
+        const response = await search(query, 'artist,album,playlist,track')
+        setResults(response)
+        console.log(response)
+      }
+      else {
+        /*Aqui fica a pesquisa por alguma das categorias*/
+        console.log('Está pesquisando alguma categoria')
+        const response = await search(query, searchType)
+        setResults(response)
+        console.log(response)
+      }
+      
+    } catch (error) {
+      console.error(`Erro ao pesquisar: `);
+    }
+  }
+
+  const handleTypeChange = (type) => {
+    setSearchType(type);
+    console.log(searchType)
+  }
+  
   return (
     <>
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
@@ -27,7 +61,13 @@ const PageSearch = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           <Grid item lg={2}>
-            <FormSearch />
+            <FormSearch 
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button type='submit' onClick={handleSearch}>Pesquisar</button>
+            <br />
+            
           </Grid>
         </Grid>
       </div>
@@ -50,11 +90,11 @@ const PageSearch = () => {
         >
           <Grid item lg={2}>
             <div className="Container_buttons">
-              <button className="active">Tudo</button>
-              <button>Playlist</button>
-              <button>Músicas</button>
-              <button>Artistas</button>
-              <button>Álbum</button>
+              <button className="active" onClick={() => handleTypeChange('artist,album,playlist,track')}>Tudo</button>
+              <button onClick={() => handleTypeChange('artist')}>Artistas</button>
+              <button onClick={() => handleTypeChange('playlist')}>Playlists</button>
+              <button onClick={() => handleTypeChange('track')}>Músicas</button>
+              <button onClick={() => handleTypeChange('album')}>Álbuns</button>
             </div>
           </Grid>
         </Grid>
