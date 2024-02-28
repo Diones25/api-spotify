@@ -101,7 +101,56 @@ const PageSearch = () => {
             </Grid>          
           }
         </Grid>
-      </div>      
+      </div>     
+
+      <div>
+        {/* Render search results here */}
+        {results && results.artists && (
+          <div>
+            <h2>Artists</h2>
+            {results.artists.items.map((artist) => (
+              <div key={artist.id}>
+                <p>{artist.name}</p>
+                <p>{artist.id}</p>
+              </div>
+            ))}
+          </div>
+        )}  
+
+        {results && results.playlists && (
+          <div>
+            <h2>Playlists</h2>
+            {results.playlists.items.map((playlist) => (
+              <div key={playlist.id}>
+                <p>{playlist.name}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {results && results.albums && (
+          <div>
+            <h2>Albums</h2>
+            {results.albums.items.map((album) => (
+              <div key={album.id}>
+                <p>{album.name}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {results && results.tracks && (
+          <div>
+            <h2>Tracks</h2>
+            {results.tracks.items.map((track) => (
+              <div key={track.id}>
+                <p>{track.name}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+      </div> 
 
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
         <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
