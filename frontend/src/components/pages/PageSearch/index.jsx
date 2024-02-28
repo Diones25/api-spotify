@@ -139,59 +139,42 @@ const PageSearch = () => {
           </div>
         )}
 
-        {results && results.tracks && (
-          <div>
-            <h2>Tracks</h2>
-            {results.tracks.items.map((track) => (
-              <div key={track.id}>
-                <p>{track.name}</p>
-              </div>
-            ))}
+
+      </div> 
+
+      {results && results.tracks && (
+        <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
+          <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
+            Musicas
           </div>
-        )}
-
-      </div> 
-
-      <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
-        <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
-          Musicas
-        </div>
-        
-        <div className="container-fluid d-flex flex-column">
-          <div className="row">
-            <div className="col-md-12 col-lg-12">
-         
-              <div className="col-md-6">
-                <iframe 
-                  style={{ borderRadius: "12px" }} 
-                  src="https://open.spotify.com/embed/track/7iL6o9tox1zgHpKUfh9vuC?utm_source=generator&theme=0" 
-                  width="100%" 
-                  height="152" 
-                  frameBorder="0" 
-                  allowfullscreen="" 
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture;" 
-                  loading="lazy">
-                </iframe>
-              </div>
-              
-              <div className="col-md-6">
-                <iframe 
-                  style={{ borderRadius: "12px" }} 
-                  src="https://open.spotify.com/embed/track/7iL6o9tox1zgHpKUfh9vuC?utm_source=generator&theme=0" 
-                  width="100%" 
-                  height="152" 
-                  frameBorder="0" 
-                  allowfullscreen="" 
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                  loading="lazy">
-                </iframe>
-              </div>
           
-            </div>
-          </div>                    
-        </div>
+          <div className="container-fluid d-flex flex-column">
+            <div className="row">
+              <div className="col-md-12 col-lg-12">
+          
+                {results.tracks.items.map((track) => (
+                  <div className="col-md-6">
+                    
+                    <iframe 
+                      style={{ borderRadius: "12px" }} 
+                      src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator&theme=0`} 
+                      width="100%" 
+                      height="152" 
+                      frameBorder="0" 
+                      allowfullscreen="" 
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture;" 
+                      loading="lazy">
+                    </iframe>
+                  </div>
+                ))}
+            
+              </div>
+            </div>                    
+          </div>
 
-      </div> 
+        </div>           
+      )}
+
         
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
         <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
