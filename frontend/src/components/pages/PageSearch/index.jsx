@@ -5,7 +5,8 @@ import {
 import FormSearch from "../../FormSearch";
 import Card from "../../Card";
 import CardRounded from "../../CardRounded";
-import { search } from '../../../services/api.js'
+import { search } from '../../../services/api.js';
+import image_notFound from '../../../assets/img/image_notFound.jpg';
 import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./style.css"
 
@@ -105,17 +106,18 @@ const PageSearch = () => {
 
       <div>
         {/* Render search results here */}
-        {results && results.artists && (
+        {/* {results && searchType === 'artist'&& results.length > 0 &&(
           <div>
             <h2>Artists</h2>
-            {results.artists.items.map((artist) => (
+            {results.map((artist) => (
               <div key={artist.id}>
                 <p>{artist.name}</p>
-                <p>{artist.id}</p>
+                <p>{artist.image}</p>
+                <img src={artist.image} alt="" srcset="" />
               </div>
             ))}
           </div>
-        )}  
+        )}   */}
 
         {results && results.playlists && (
           <div>
@@ -141,7 +143,7 @@ const PageSearch = () => {
 
 
       </div> 
-
+      {/*Colocar um loading enquando as mucias carregam*/}
       {results && results.tracks && (
         <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
           <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
@@ -174,51 +176,40 @@ const PageSearch = () => {
 
         </div>           
       )}
-
         
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
-        <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
-          Artistas
-        </div>
-        
-        <Grid 
-          className="
-            d-flex justify-content-center 
-            justify-content-sm-center 
-            justify-content-md-center 
-            justify-content-lg-start
-            flex-column
-            flex-sm-row
-            flex-md-row
-            flex-lg-row
-            align-items-center
-          " 
-            container spacing={{ xs: 2, md: 3 }} 
-            columns={{ xs: 4, sm: 8, md: 12 }}
-          >
-          <Grid item lg={2}>
-            <CardRounded
-              image={"https://i.scdn.co/image/df73c0cebe56cafe705ffdba5085ccbd5680bd16"}
-              title={'50 Cent'}
-              description={'Artista'}
-            />
-          </Grid>
-          <Grid item lg={2}>
-            <CardRounded
-              image={"https://i.scdn.co/image/ab676161000051749a398209a4ef3360dce2dec4"}
-              title={'Snoop Dogg'}
-              description={'Artista'}
-            />
-          </Grid>
-
-          <Grid item lg={2}>
-            <CardRounded
-              image={"https://i.scdn.co/image/ab67616100005174a00b11c129b27a88fc72f36b"}
-              title={'Eminem'}
-              description={'Artista'}
-            />
-          </Grid>
-        </Grid>
+        {results && searchType === 'artist'&& results.length > 0 &&(
+          <>                                   
+            <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
+              Artistas
+            </div>
+            <Grid 
+              className="
+                d-flex justify-content-center 
+                justify-content-sm-center 
+                justify-content-md-center 
+                justify-content-lg-start
+                flex-column
+                flex-sm-row
+                flex-md-row
+                flex-lg-row
+                align-items-center
+              " 
+                container spacing={{ xs: 2, md: 3 }} 
+                columns={{ xs: 4, sm: 8, md: 12 }}
+              >
+              {results.map((artist) => (                  
+                <Grid item lg={2} key={artist.id}>
+                  <CardRounded                    
+                    image={artist.image ? artist.image : image_notFound}
+                    title={artist.name}
+                    description={ artist.type ? 'Artista' : '' }
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          </>
+        )}
       </div> 
 
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">

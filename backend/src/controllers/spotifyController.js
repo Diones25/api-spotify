@@ -62,7 +62,57 @@ const search = async (req, res) => {
     if(req.query.type == "artist") { 
       console.log("Pesquisou um artista")
       const response = await api.search(q, ['artist'], market, limit, offset, include_external);
-      return res.status(200).json(response);
+
+      
+      
+      // const data = {
+      //   artists: {
+      //     items: response.artists.items.map((item) => {
+      //       return {
+      //         id: item.id,
+      //         name: item.name,
+      //         type: item.type,
+      //         image: item.images,
+      //         popularity: item.popularity
+      //       }
+      //     }) 
+      //   }
+      // }
+
+      const data = response;
+
+
+      // Função para filtrar as URLs das imagens com altura 320
+        function filterImagesWithHeight320(data) {
+          const artists = data.artists.items;
+
+          const filteredImages = artists.map(artist => {
+              const images320 = artist.images.filter(image => image.width === 640);
+              const urls320 = images320.map(image => image.url);
+              return { 
+                id: artist.id, 
+                name: artist.name,
+                type: artist.type,
+                image: urls320.toString() 
+              };
+          });
+
+          return filteredImages;
+        }
+
+        /*
+          id: artist.id, 
+          name: artist.name,
+          type: artist.type,
+          image: urls320.toString()
+        */
+
+        // Chamada da função e obtenção do novo objeto com URLs das imagens de altura 320
+        const filteredData = filterImagesWithHeight320(data);
+        console.log(filteredData);
+
+
+      return res.status(200).json(filteredData);
     }
     else if(req.query.type == "album") { 
       console.log("Pesquisou um album")
