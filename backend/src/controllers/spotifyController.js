@@ -16,23 +16,6 @@ const search = async (req, res) => {
   //Necessário implementar paginação no front-end
   
   try {
-    if(req.query.type == "artist") { 
-      const response = await api.search(q, ['artist'], market, limit, offset, include_external);
-      return res.status(200).json(response);
-    }
-    else if(req.query.type == "album") { 
-      const response = await api.search(q, ['album'], market, limit, offset, include_external);    
-      return res.status(200).json(response);
-    }
-    else if(req.query.type == "playlist") { 
-      const response = await api.search(q, ['playlist'], market, limit, offset, include_external);      
-      return res.status(200).json(response);
-    }
-    else if(req.query.type == "track") { 
-      const response = await api.search(q, ['track'], market, limit, offset, include_external);
-      return res.status(200).json(response);
-    }
-
     const response = await api.search(q, [type], market, limit, offset, include_external);
     return res.status(200).json(response);
   } catch (error) {

@@ -147,117 +147,117 @@ const PageSearch = () => {
         </div>           
       )}
         
-        {results && results.artists && (
-          <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
-              <>                                   
-                <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
-                  Artistas
-                </div>
-                <Grid 
-                  className="
-                    d-flex justify-content-center 
-                    justify-content-sm-center 
-                    justify-content-md-center 
-                    justify-content-lg-start
-                    flex-column
-                    flex-sm-row
-                    flex-md-row
-                    flex-lg-row
-                    align-items-center
-                  " 
-                    container spacing={{ xs: 2, md: 3 }} 
-                    columns={{ xs: 4, sm: 8, md: 12 }}
+      {results && results.artists && (
+        <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
+            <>                                   
+              <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
+                Artistas
+              </div>
+              <Grid 
+                className="
+                  d-flex justify-content-center 
+                  justify-content-sm-center 
+                  justify-content-md-center 
+                  justify-content-lg-start
+                  flex-column
+                  flex-sm-row
+                  flex-md-row
+                  flex-lg-row
+                  align-items-center
+                " 
+                  container spacing={{ xs: 2, md: 3 }} 
+                  columns={{ xs: 4, sm: 8, md: 12 }}
+                >
+                {results.artists.items.map((artist) => (                  
+                  <Grid item lg={2} key={artist.id}>
+                    <Link id='Link' to={`/artist/${artist.id}`}>
+                      <CardRounded                    
+                        image={artist.images.filter(image => image.width === 640).map(image => image.url).toString() ? artist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
+                        title={artist.name}
+                        description={ artist.type ? 'Artista' : '' }
+                      />
+                    </Link>
+                  </Grid>
+                ))}
+              </Grid>
+            </>
+        </div> 
+      )}
+
+      {results && results.albums && (
+        <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
+            <>
+              <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
+                Albuns
+              </div>
+              <Grid 
+                className="
+                  d-flex justify-content-center 
+                  justify-content-sm-center 
+                  justify-content-md-center 
+                  justify-content-lg-start
+                  flex-column
+                  flex-sm-row
+                  flex-md-row
+                  flex-lg-row
+                  align-items-center
+                " 
+                  container spacing={{ xs: 2, md: 3 }} 
+                  columns={{ xs: 4, sm: 8, md: 12 }}
                   >
-                  {results.artists.items.map((artist) => (                  
-                    <Grid item lg={2} key={artist.id}>
-                      <Link id='Link' to={`/artist/${artist.id}`}>
-                        <CardRounded                    
-                          image={artist.images.filter(image => image.width === 640).map(image => image.url).toString() ? artist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                          title={artist.name}
-                          description={ artist.type ? 'Artista' : '' }
+                  {results.albums.items.map((album) => (
+                    <Grid item lg={2}>
+                      <Link id='Link' to={`/album/${album.id}`}>
+                        <Card
+                          image={album.images.filter(image => image.width === 640).map(image => image.url).toString() ? album.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
+                          title={album.name}
+                          description={album.type ? 'Album' : ''}
                         />
                       </Link>
                     </Grid>
                   ))}
-                </Grid>
-              </>
-          </div> 
-        )}
+              </Grid>
+            
+            </>
+        </div>
+      )}
 
-        {results && results.albums && (
-          <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
-              <>
-                <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
-                  Albuns
-                </div>
-                <Grid 
-                  className="
-                    d-flex justify-content-center 
-                    justify-content-sm-center 
-                    justify-content-md-center 
-                    justify-content-lg-start
-                    flex-column
-                    flex-sm-row
-                    flex-md-row
-                    flex-lg-row
-                    align-items-center
-                  " 
-                    container spacing={{ xs: 2, md: 3 }} 
-                    columns={{ xs: 4, sm: 8, md: 12 }}
-                    >
-                    {results.albums.items.map((album) => (
-                      <Grid item lg={2}>
-                        <Link id='Link' to={`/album/${album.id}`}>
-                          <Card
-                            image={album.images.filter(image => image.width === 640).map(image => image.url).toString() ? album.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                            title={album.name}
-                            description={album.type ? 'Album' : ''}
-                          />
-                        </Link>
-                      </Grid>
-                    ))}
-                </Grid>
-              
-              </>
-          </div>
-        )}
-
-        {results && results.playlists && (
-          <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
-              <>
-                <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
-                  Playlists
-                </div>
-                <Grid 
-                  className="
-                    d-flex justify-content-center 
-                    justify-content-sm-center 
-                    justify-content-md-center 
-                    justify-content-lg-start
-                    flex-column
-                    flex-sm-row
-                    flex-md-row
-                    flex-lg-row
-                    align-items-center
-                  " 
-                    container spacing={{ xs: 2, md: 3 }} 
-                    columns={{ xs: 4, sm: 8, md: 12 }}
-                  >
-                  {results.playlists.items.map((playlist) => (
-                    <Grid item lg={2}>
-                      <Link id='Link' to={`/playlist/${playlist.id}`}>
-                        <Card
-                          image={playlist.images.filter(image => image.width === 640).map(image => image.url).toString() ? playlist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                          title={playlist.name}
-                          description={playlist.type ? 'Playlist' : ''}
-                        />                      
-                      </Link>
-                    </Grid>
-                  ))}
-                </Grid>
-              </>
-          </div>
-        )}
+      {results && results.playlists && (
+        <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
+            <>
+              <div id="Title" className="fw-bold h3 text-center text-sm-center text-md-center text-lg-start">
+                Playlists
+              </div>
+              <Grid 
+                className="
+                  d-flex justify-content-center 
+                  justify-content-sm-center 
+                  justify-content-md-center 
+                  justify-content-lg-start
+                  flex-column
+                  flex-sm-row
+                  flex-md-row
+                  flex-lg-row
+                  align-items-center
+                " 
+                  container spacing={{ xs: 2, md: 3 }} 
+                  columns={{ xs: 4, sm: 8, md: 12 }}
+                >
+                {results.playlists.items.map((playlist) => (
+                  <Grid item lg={2}>
+                    <Link id='Link' to={`/playlist/${playlist.id}`}>
+                      <Card
+                        image={playlist.images.filter(image => image.width === 640).map(image => image.url).toString() ? playlist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
+                        title={playlist.name}
+                        description={playlist.type ? 'Playlist' : ''}
+                      />                      
+                    </Link>
+                  </Grid>
+                ))}
+              </Grid>
+            </>
+        </div>
+      )}
     </>
   )
 }
