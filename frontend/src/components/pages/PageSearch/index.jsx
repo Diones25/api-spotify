@@ -62,11 +62,23 @@ const PageSearch = () => {
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
           <Grid item lg={2}>
-            <FormSearch 
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button type='submit' onClick={handleSearch}>Pesquisar</button>            
+            <div className='
+              d-flex flex-column
+              flex-sm-row
+              flex-md-row
+              flex-lg-row'
+            >
+              <FormSearch 
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+              />
+              <button 
+                type='submit' 
+                className='mt-3 mt-sm-0 mt-md-0 mt-lg-0' 
+                id='buttonSearch' 
+                onClick={handleSearch}
+              >Pesquisar</button>            
+            </div>
           </Grid>
         </Grid>
       </div>
