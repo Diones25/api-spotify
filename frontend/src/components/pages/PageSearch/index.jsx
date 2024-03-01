@@ -20,18 +20,12 @@ const PageSearch = () => {
     try {
 
       if(searchType === 'artist,album,playlist,track') {
-        /*Aqui fica a pesquisa geral*/
-        console.log('Está pesquisando tudo')
         const response = await search(query, 'artist,album,playlist,track')
         setResults(response)
-        console.log(response)
       }
       else {
-        /*Aqui fica a pesquisa por alguma das categorias*/
-        console.log('Está pesquisando alguma categoria')
         const response = await search(query, searchType)
         setResults(response)
-        console.log(response)
       }
       
     } catch (error) {
@@ -41,7 +35,11 @@ const PageSearch = () => {
 
   const handleTypeChange = (type) => {
     setSearchType(type);
-    console.log(searchType)
+  }
+
+  const handleInputChange = async (e) => {
+    setQuery(e.target.value)
+    handleTypeChange('artist,album,playlist,track')
   }
   
   return (
@@ -68,10 +66,10 @@ const PageSearch = () => {
               flex-sm-row
               flex-md-row
               flex-lg-row'
-            >
+            > 
               <FormSearch 
                 value={query}
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={handleInputChange}
               />
               <button 
                 type='submit' 
