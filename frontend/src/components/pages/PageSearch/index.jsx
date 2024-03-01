@@ -157,7 +157,7 @@ const PageSearch = () => {
                   {results.artists.items.map((artist) => (                  
                     <Grid item lg={2} key={artist.id}>
                       <CardRounded                    
-                        image={artist.image ? artist.image : image_notFound}
+                        image={artist.images.filter(image => image.width === 640).map(image => image.url).toString() ? artist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
                         title={artist.name}
                         description={ artist.type ? 'Artista' : '' }
                       />
@@ -192,7 +192,7 @@ const PageSearch = () => {
                     {results.albums.items.map((album) => (
                       <Grid item lg={2}>
                         <Card
-                          image={album.image ? album.image : image_notFound}
+                          image={album.images.filter(image => image.width === 640).map(image => image.url).toString() ? album.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
                           title={album.name}
                           description={album.type ? 'Album' : ''}
                         />
@@ -228,7 +228,7 @@ const PageSearch = () => {
                   {results.playlists.items.map((playlist) => (
                     <Grid item lg={2}>
                       <Card
-                        image={playlist.image ? playlist.image : image_notFound}
+                        image={playlist.images.filter(image => image.width === 640).map(image => image.url).toString() ? playlist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
                         title={playlist.name}
                         description={playlist.type ? 'Playlist' : ''}
                       />
