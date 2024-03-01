@@ -22,7 +22,7 @@ export const Router = createBrowserRouter([
     }
   },
   {
-    path: "/album",
+    path: "/album/:id",
     Component() {
       return (
         <PageAlbum />
@@ -30,7 +30,7 @@ export const Router = createBrowserRouter([
     }
   },
   {
-    path: "/artist",
+    path: "/artist/:id",
     Component() {
       return (
         <PageArtist />

@@ -129,6 +129,7 @@ const PageSearch = () => {
                 {results.tracks.items.map((track) => (
                   <div className="col-md-6">                    
                     <iframe 
+                      title={track.name}
                       style={{ borderRadius: "12px" }} 
                       src={`https://open.spotify.com/embed/track/${track.id}?utm_source=generator&theme=0`} 
                       width="100%" 
@@ -204,11 +205,13 @@ const PageSearch = () => {
                     >
                     {results.albums.items.map((album) => (
                       <Grid item lg={2}>
-                        <Card
-                          image={album.images.filter(image => image.width === 640).map(image => image.url).toString() ? album.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                          title={album.name}
-                          description={album.type ? 'Album' : ''}
-                        />
+                        <Link id='Link' to={`/album/${album.id}`}>
+                          <Card
+                            image={album.images.filter(image => image.width === 640).map(image => image.url).toString() ? album.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
+                            title={album.name}
+                            description={album.type ? 'Album' : ''}
+                          />
+                        </Link>
                       </Grid>
                     ))}
                 </Grid>
