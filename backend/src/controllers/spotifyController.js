@@ -48,7 +48,6 @@ const getUserPlaylist = async (req, res) => {
   }
 }
 
-//CRIAR UM ENPOINT PARA CADA TIPO DE PESQUISA -> ARTISTA, ALBUM, PLAYLIST, tracks
 const search = async (req, res) => {  
   const q = req.query['q'];
   const type = req.query['type'];
@@ -60,78 +59,86 @@ const search = async (req, res) => {
   
   try {
     if(req.query.type == "artist") { 
-      console.log("Pesquisou um artista")
       const response = await api.search(q, ['artist'], market, limit, offset, include_external);
-
-      
-      
-      // const data = {
-      //   artists: {
-      //     items: response.artists.items.map((item) => {
-      //       return {
-      //         id: item.id,
-      //         name: item.name,
-      //         type: item.type,
-      //         image: item.images,
-      //         popularity: item.popularity
-      //       }
-      //     }) 
-      //   }
-      // }
 
       const data = response;
 
+      function filterImagesWithHeight320(data) {
+        const artists = data.artists.items;
 
-      // Função para filtrar as URLs das imagens com altura 320
-        function filterImagesWithHeight320(data) {
-          const artists = data.artists.items;
+        const filteredImages = artists.map(artist => {
+            const images320 = artist.images.filter(image => image.width === 640);
+            const urls320 = images320.map(image => image.url);
+            return { 
+              id: artist.id, 
+              name: artist.name,
+              type: artist.type,
+              image: urls320.toString() 
+            };
+        });
 
-          const filteredImages = artists.map(artist => {
-              const images320 = artist.images.filter(image => image.width === 640);
-              const urls320 = images320.map(image => image.url);
-              return { 
-                id: artist.id, 
-                name: artist.name,
-                type: artist.type,
-                image: urls320.toString() 
-              };
-          });
+        return filteredImages;
+      }
 
-          return filteredImages;
-        }
-
-        /*
-          id: artist.id, 
-          name: artist.name,
-          type: artist.type,
-          image: urls320.toString()
-        */
-
-        // Chamada da função e obtenção do novo objeto com URLs das imagens de altura 320
-        const filteredData = filterImagesWithHeight320(data);
-        console.log(filteredData);
-
-
+      const filteredData = filterImagesWithHeight320(data);
       return res.status(200).json(filteredData);
     }
     else if(req.query.type == "album") { 
-      console.log("Pesquisou um album")
       const response = await api.search(q, ['album'], market, limit, offset, include_external);
-      return res.status(200).json(response);
+
+      const data = response;
+
+      function filterImagesWithHeight320(data) {
+        const albums = data.albums.items;
+
+        const filteredImages = albums.map(album => {
+            const images320 = album.images.filter(image => image.width === 640);
+            const urls320 = images320.map(image => image.url);
+            return { 
+              id: album.id, 
+              name: album.name,
+              type: album.type,
+              image: urls320.toString() 
+            };
+        });
+
+        return filteredImages;
+      }
+
+      const filteredData = filterImagesWithHeight320(data);      
+      return res.status(200).json(filteredData);
     }
     else if(req.query.type == "playlist") { 
-      console.log("Pesquisou uma playlist")
       const response = await api.search(q, ['playlist'], market, limit, offset, include_external);
-      return res.status(200).json(response);
+
+      const data = response;
+
+      function filterImagesWithHeight320(data) {
+        const playlists = data.playlists.items;
+
+        const filteredImages = playlists.map(playlist => {
+            const images320 = playlist.images.filter(image => image.width === 640);
+            const urls320 = images320.map(image => image.url);
+            return { 
+              id: playlist.id, 
+              name: playlist.name,
+              type: playlist.type,
+              image: urls320.toString() 
+            };
+        });
+
+        return filteredImages;
+      }
+
+      const filteredData = filterImagesWithHeight320(data);       
+      return res.status(200).json(filteredData);
     }
     else if(req.query.type == "track") { 
-      console.log("Pesquisou uma musica")
       const response = await api.search(q, ['track'], market, limit, offset, include_external);
       return res.status(200).json(response);
     }
-    //Pesquisando tudo
+
     const response = await api.search(q, [type], market, limit, offset, include_external);
-    console.log("Pesquisou tudo")
     return res.status(200).json(response);
   } catch (error) {
     return res.status(404).json(error);
