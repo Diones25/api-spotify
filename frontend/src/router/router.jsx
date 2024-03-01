@@ -14,7 +14,7 @@ export const Router = createBrowserRouter([
     }
   },
   {
-    path: "/playlist",
+    path: "/playlist/:id",
     Component() {
       return (
         <PagePlaylist />

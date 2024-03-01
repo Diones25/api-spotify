@@ -1,4 +1,5 @@
 import React, { useState } from 'react'; 
+import { Link } from 'react-router-dom';
 import { 
   Grid
 } from "@mui/material";
@@ -239,11 +240,13 @@ const PageSearch = () => {
                   >
                   {results.playlists.items.map((playlist) => (
                     <Grid item lg={2}>
-                      <Card
-                        image={playlist.images.filter(image => image.width === 640).map(image => image.url).toString() ? playlist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                        title={playlist.name}
-                        description={playlist.type ? 'Playlist' : ''}
-                      />
+                      <Link id='Link' to={`/playlist/${playlist.id}`}>
+                        <Card
+                          image={playlist.images.filter(image => image.width === 640).map(image => image.url).toString() ? playlist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
+                          title={playlist.name}
+                          description={playlist.type ? 'Playlist' : ''}
+                        />                      
+                      </Link>
                     </Grid>
                   ))}
                 </Grid>
