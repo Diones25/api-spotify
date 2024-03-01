@@ -18,16 +18,8 @@ const PageSearch = () => {
 
   const handleSearch = async () => {
     try {
-
-      if(searchType === 'artist,album,playlist,track') {
-        const response = await search(query, 'artist,album,playlist,track')
-        setResults(response)
-      }
-      else {
-        const response = await search(query, searchType)
-        setResults(response)
-      }
-      
+      const response = await search(query, searchType)
+      setResults(response)            
     } catch (error) {
       console.error(`Erro ao pesquisar: `);
     }
