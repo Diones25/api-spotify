@@ -1,8 +1,11 @@
+import { useParams } from 'react-router-dom';
 import { Grid } from "@mui/material";
 import Sidebar from "../../Sidebar";
 import './styles.css';
 
 const PageArtist = () => {
+  const { id } = useParams();
+
   return (
     <>
       <Sidebar>
@@ -12,7 +15,7 @@ const PageArtist = () => {
               <iframe
                 title="Spotify"
                 className="SpotifyPlayer"
-                src="https://embed.spotify.com/?uri=spotify:artist:5Lv2GUVwqmQBPwrTrxucE5&view=list&theme=black"
+                src={`https://embed.spotify.com/?uri=spotify:artist:${id}&view=list&theme=black`}
                 width="100%"
                 height="100%"
                 frameBorder="0"

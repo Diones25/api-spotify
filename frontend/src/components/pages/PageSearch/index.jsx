@@ -170,11 +170,13 @@ const PageSearch = () => {
                   >
                   {results.artists.items.map((artist) => (                  
                     <Grid item lg={2} key={artist.id}>
-                      <CardRounded                    
-                        image={artist.images.filter(image => image.width === 640).map(image => image.url).toString() ? artist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                        title={artist.name}
-                        description={ artist.type ? 'Artista' : '' }
-                      />
+                      <Link id='Link' to={`/artist/${artist.id}`}>
+                        <CardRounded                    
+                          image={artist.images.filter(image => image.width === 640).map(image => image.url).toString() ? artist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
+                          title={artist.name}
+                          description={ artist.type ? 'Artista' : '' }
+                        />
+                      </Link>
                     </Grid>
                   ))}
                 </Grid>
