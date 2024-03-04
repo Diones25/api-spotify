@@ -39,10 +39,8 @@ const PageSearch = () => {
       <div className="ms-sm-0 ms-md-0 ms-lg-4 mt-5">
         <Grid
           className="
-            d-flex justify-content-center 
-            justify-content-sm-center 
-            justify-content-md-center 
-            justify-content-lg-start
+            d-flex 
+            justify-content-center 
             flex-column
             flex-sm-row
             flex-md-row
@@ -78,9 +76,6 @@ const PageSearch = () => {
         <Grid
           className="
             d-flex justify-content-center 
-            justify-content-sm-center 
-            justify-content-md-center 
-            justify-content-lg-start
             flex-column
             flex-sm-row
             flex-md-row
