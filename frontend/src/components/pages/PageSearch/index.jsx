@@ -158,7 +158,7 @@ const PageSearch = () => {
                     <Link id='Link' to={`/artist/${artist.id}`}>
                       <CardRounded                    
                         image={artist.images.filter(image => image.width === 640).map(image => image.url).toString() ? artist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                        title={artist.name}
+                        title={artist.name.length >= 16 ? `${artist.name.substr(0, 16)}...` : artist.name}
                         description={ artist.type ? 'Artista' : '' }
                       />
                     </Link>
@@ -195,7 +195,7 @@ const PageSearch = () => {
                       <Link id='Link' to={`/album/${album.id}`}>
                         <Card
                           image={album.images.filter(image => image.width === 640).map(image => image.url).toString() ? album.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                          title={album.name}
+                          title={album.name.length >= 16 ? `${album.name.substr(0, 16)}...` : album.name}
                           description={album.type ? 'Album' : ''}
                         />
                       </Link>
@@ -233,7 +233,7 @@ const PageSearch = () => {
                     <Link id='Link' to={`/playlist/${playlist.id}`}>
                       <Card
                         image={playlist.images.filter(image => image.width === 640).map(image => image.url).toString() ? playlist.images.filter(image => image.width === 640).map(image => image.url).toString() : image_notFound}
-                        title={playlist.name}
+                        title={playlist.name.length >= 16 ? `${playlist.name.substr(0, 16)}...` : playlist.name}
                         description={playlist.type ? 'Playlist' : ''}
                       />                      
                     </Link>
