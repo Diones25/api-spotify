@@ -1,5 +1,5 @@
-const { Router } = require('express');
-const spotifyController = require('../controllers/spotifyController.js');
+import { Router } from 'express';
+import spotifyController from '../controllers/spotifyController';
 
 const router = Router();
 
@@ -7,4 +7,4 @@ router.get('/', spotifyController.home);
 router.get('/search', spotifyController.search);
 router.get('/lyrics', spotifyController.getLyrics);
 
-module.exports = router;
+export default router;

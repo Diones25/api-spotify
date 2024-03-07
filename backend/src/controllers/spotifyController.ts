@@ -1,16 +1,17 @@
-const { SpotifyApi } = require("@spotify/web-api-ts-sdk");
-const axios = require('axios');
+import { Request, Response } from 'express';
+import { SpotifyApi } from "@spotify/web-api-ts-sdk";
+import axios from 'axios';
 
 const api = SpotifyApi.withClientCredentials(
-  process.env.SPOTIFY_CLIENT_ID,
-  process.env.SPOTIFY_CLIENTE_SECRET 
+  process.env.SPOTIFY_CLIENT_ID as string,
+  process.env.SPOTIFY_CLIENTE_SECRET as string
 )
 
-const search = async (req, res) => {  
-  const q = req.query['q'];
-  const type = req.query['type'];
-  const limit = req.query['limit'];
-  const offset = req.query['offset'];
+const search = async (req: Request, res: Response) => {  
+  const q: string | any = req.query['q'];
+  const type: string | any  = req.query['type'];
+  const limit: string | any  = req.query['limit'];
+  const offset: string | any  = req.query['offset'];
   const market = "BR";
   const include_external = "audio";
   //Necessário implementar paginação no front-end
@@ -23,7 +24,7 @@ const search = async (req, res) => {
   }
 }
 
-const getLyrics = async (req, res) => {
+const getLyrics = async (req: Request, res: Response) => {
   const art = req.query['art'];
   const mus = req.query['mus'];
   const apikey = process.env.API_KEY_VAGALUME;
@@ -36,11 +37,11 @@ const getLyrics = async (req, res) => {
   }
 }
 
-const home = (req, res) => {
+const home = (req: Request, res: Response) => {
   return res.status(200).json("Hello");
 }
 
-module.exports = {
+export default {
   search,
   getLyrics,
   home
