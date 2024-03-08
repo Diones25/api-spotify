@@ -10,7 +10,9 @@ const chalk = require('chalk');
 const app = express();
 const port = process.env.PORT;
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://18.228.38.54:3333'
+}));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(router);
