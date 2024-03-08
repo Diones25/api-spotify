@@ -15,6 +15,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(router);
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.listen(port, () => {
   console.log(chalk.bgGreenBright.black(`Servidor rodando no endereço: http://localhost:${port}`));
 });
