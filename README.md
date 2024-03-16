@@ -35,11 +35,13 @@ Abaixo estão as telas implementadas no front-end com React JS para consumir a A
 
 #### Tela Home
 Nesta tela você pode pesquisar a musica, album, artista ou playlists, ao pesquisa sem clicar em nenhuma tag é listado todos os dados da pesquisa, como as músicas, artista, albums e playlist, se quiser listar por exemplo só os albums é só clicar no botão 'Álbums' e em pesquisar que irá listar apenas os albums relacionado a pesquisa o mesmo acontece para as outras opções:
-![img](back-end/src/assets/home.png)
+
+![img](backend/src/assets/home.png)
 
 #### Tela de playlist
 Ao clicar em algum card na listagem de playlist será redirecionado para esta tela onde irá exibir uma playlist de musica do artista pesquisado anteriormente, o mesmo acontece se clicado em um card de albums, será redirecionado para uma lista onde irá lista as músicas do album selecionado.
-![img](back-end/src/assets/playlist.png)
+
+![img](backend/src/assets/playlist.png)
 
 ## Stack utilizada
 
