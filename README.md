@@ -1,21 +1,21 @@
 
-![img](back-end/src/assets/spotify.jpg)
+![img](backend/src/assets/spotify.jpg)
 ## App spotify para conculta de músicas, playlists, artistas e albums
 
-Esta app tem como finalidade retornar músicas, playlists, artistas e albums do resultado da pesquisa na tela inicial, com isso é prossível reproduzir músicas de seu artista ou banda favorita diretamente na tela do seu navegador sem precisar acessar o aplicativo do spotify, este projeto foi dividido em Back-End e Front-End.
+Esta app tem como finalidade retornar músicas, playlists, artistas e albums do resultado da pesquisa na tela inicial, com isso é prossível reproduzir músicas de seu artista ou banda favorita diretamente na tela do seu navegador sem precisar acessar o aplicativo do spotify, este projeto foi dividido em backend e Front-End.
 
 ## Instalação
 
 Para rodar o projeto deve ter instalado o Node JS e o NPM e além disso fazer um cadastro de aplicativo no site oficial do [desenvolvedor do spotify](https://developer.spotify.com/):
 
 #### 1. Na tela inicial do link acima você deve estar conectado a sua conta do spotify, então clique em Dasboard:
-![img](back-end/src/assets/tela01.png)
+![img](backend/src/assets/tela01.png)
 #### 2. Na Próxima tela cliquem em Create app:
-![img](back-end/src/assets/tela02.png)
+![img](backend/src/assets/tela02.png)
 #### 2. Após preenchear as informações do seun novo app irá aparecer na listagem da tela de Dasboard o seu app, clicando nele vai aparecer um botão ao lado chamado Settings, na próxima tela vai aparecer as informações de Client ID e Cliend Secret:
-![img](back-end/src/assets/tela03.png)
+![img](backend/src/assets/tela03.png)
 #### 2.1 Essas informações de Client ID e Cliend Secret devem ser inseridas no arquivo .env
-![img](back-end/src/assets/tela04.png)
+![img](backend/src/assets/tela04.png)
 
 
 Após configurar o projeto seguindo os passo acima, rode os comandos abaixo:
